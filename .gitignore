@@ -1,0 +1,65 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+downloads/
+lib/
+lib64/
+parts/
+sdist/
+var/
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.env
+.venv
+.python-version
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Logs
+logs/
+*.log
+
+# Local development
+.env.local
+.env.example
+
+# Docker
+.docker/
+docker-compose.override.yml
+
+# Testing
+.coverage
+.pytest_cache/
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+.hypothesis/
+
+# Project specific
+data/
+uploads/
+temp/
+*.db
+*.sqlite3
+
+# Misc
+.DS_Store
+*.bak
+*.tmp
+*.swp
+.~lock.* 
