@@ -1,5 +1,5 @@
 from openai import AsyncOpenAI
-from app.config import get_settings
+from app.config import get_settings, ModelSettings
 import logging
 from typing import List, Dict
 
@@ -9,7 +9,7 @@ logger = logging.getLogger(__name__)
 class CompletionService:
     def __init__(self):
         self.client = AsyncOpenAI(api_key=settings.OPENAI_API_KEY)
-        self.model = "gpt-4o-mini"
+        self.model = settings.DEFAULT_COMPLETION_MODEL
 
     async def generate_response(self, query: str, context: List[Dict]) -> str:
         try:

@@ -2,38 +2,54 @@
 
 A FastAPI-based RAG system with multi-tenant support, document management, and semantic search capabilities.
 
-## Project Structure 
+## Project Structure
 
+```
+.
 ├── app/
-│ ├── api/
-│ │ ├── dependencies/ # Dependency injection
-│ │ ├── models/ # Pydantic models
-│ │ └── routes/ # API endpoints
-│ ├── services/ # Business logic
-│ │ ├── bulk_upload.py
-│ │ ├── completion.py
-│ │ ├── embedding.py
-│ │ ├── rag.py
-│ │ └── supabase.py
-│ ├── config.py # Configuration settings
-│ └── main.py # FastAPI application
-├── docker-compose.yml
-├── Dockerfile
-├── requirements.txt
-├── .env
-└── README.md
+│   ├── api/
+│   │   ├── dependencies/
+│   │   │   ├── __init__.py
+│   │   │   └── auth.py          # Authentication dependencies
+│   │   ├── models/
+│   │   │   ├── __init__.py
+│   │   │   └── document.py      # Pydantic models for documents
+│   │   └── routes/
+│   │       ├── __init__.py
+│   │       ├── auth.py          # Authentication endpoints
+│   │       ├── bulk_upload.py   # Bulk document upload endpoints
+│   │       ├── documents.py     # Document management endpoints
+│   │       └── search.py        # Search and RAG endpoints
+│   ├── services/
+│   │   ├── __init__.py
+│   │   ├── bulk_upload.py      # Bulk upload processing
+│   │   ├── completion.py       # OpenAI completion service
+│   │   ├── embedding.py        # OpenAI embedding service
+│   │   ├── rag.py             # RAG orchestration service
+│   │   └── supabase.py        # Supabase database service
+│   ├── config.py              # Application configuration
+│   └── main.py               # FastAPI application entry point
+├── docker/                   # Docker configuration files
+├── tests/                    # Test files
+├── .env                     # Environment variables
+├── .gitignore              # Git ignore rules
+├── docker-compose.yml      # Docker compose configuration
+├── Dockerfile              # Docker build instructions
+├── requirements.txt        # Python dependencies
+└── README.md              # Project documentation
+```
 
 ## Features
 
-- Multi-tenant support
-- Document management
-- Semantic search
-- RAG with GPT-4o-mini
-- Supabase integration
-- FastAPI framework
-- Dependency injection
-- Pydantic models
-- Logging
+- Multi-tenant document management
+- Semantic search using OpenAI embeddings
+- RAG-powered question answering
+- Bulk document upload (CSV/JSON)
+- Authentication and authorization
+- Supabase vector store integration
+- FastAPI REST API
+- Docker containerization
+- Comprehensive logging
 - Error handling
 - API documentation (Swagger UI)
 

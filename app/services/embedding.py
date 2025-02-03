@@ -1,5 +1,5 @@
 from openai import AsyncOpenAI
-from app.config import get_settings
+from app.config import get_settings, ModelSettings
 import logging
 
 settings = get_settings()
@@ -8,7 +8,7 @@ logger = logging.getLogger(__name__)
 class EmbeddingService:
     def __init__(self):
         self.client = AsyncOpenAI(api_key=settings.OPENAI_API_KEY)
-        self.model = "text-embedding-3-small"
+        self.model = settings.DEFAULT_EMBEDDING_MODEL
 
     async def create_embedding(self, text: str) -> list[float]:
         try:
